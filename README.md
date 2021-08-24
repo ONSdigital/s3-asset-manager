@@ -35,7 +35,8 @@ The check stage, to be run first:
         image_resource:
           type: docker-image
           source:
-            repository: ghcr.io/nsmithuk/s3-asset-manager       
+            repository: onsdigital/spp-s3-asset-manager
+            tag: 1
         inputs:
           - name: repo        
         outputs:
@@ -55,7 +56,8 @@ The upload stage, to be run last:
         image_resource:
           type: docker-image
           source:
-            repository: ghcr.io/nsmithuk/s3-asset-manager       
+            repository: onsdigital/spp-s3-asset-manager
+            tag: 1   
         inputs:
           - name: packages        
         run:
@@ -114,7 +116,7 @@ docker run -it --rm \
 -v "${PWD}:/app" \
 -v "${PWD}/local-repo:/repo" \
 -w "/app" \
-ghcr.io/nsmithuk/s3-asset-manager:latest check
+onsdigital/spp-s3-asset-manager:1 check
 ```
 
 To run an upload:
@@ -128,7 +130,7 @@ docker run -it --rm \
 -v "${PWD}:/app" \
 -v "${PWD}/local-repo:/repo" \
 -w "/app" \
-ghcr.io/nsmithuk/s3-asset-manager:latest upload
+onsdigital/spp-s3-asset-manager:1 upload
 ```
 
 ## License
