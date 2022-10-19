@@ -35,7 +35,7 @@ The check stage, to be run first:
         image_resource:
           type: docker-image
           source:
-            repository: onsdigital/spp-s3-asset-manager
+            repository: public.ecr.aws/ons-spp/s3-asset-manager
             tag: 1
         inputs:
           - name: repo        
@@ -56,7 +56,7 @@ The upload stage, to be run last:
         image_resource:
           type: docker-image
           source:
-            repository: onsdigital/spp-s3-asset-manager
+            repository: public.ecr.aws/ons-spp/s3-asset-manager
             tag: 1   
         inputs:
           - name: packages        
@@ -116,7 +116,7 @@ docker run -it --rm \
 -v "${PWD}:/app" \
 -v "${PWD}/local-repo:/repo" \
 -w "/app" \
-onsdigital/spp-s3-asset-manager:1 check
+public.ecr.aws/ons-spp/s3-asset-manager:1 check
 ```
 
 To run an upload:
@@ -130,7 +130,7 @@ docker run -it --rm \
 -v "${PWD}:/app" \
 -v "${PWD}/local-repo:/repo" \
 -w "/app" \
-onsdigital/spp-s3-asset-manager:1 upload
+public.ecr.aws/ons-spp/s3-asset-manager:1 upload
 ```
 
 ## License
